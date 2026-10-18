@@ -13,7 +13,7 @@ window.SITE = {
   // (it looks like https://script.google.com/macros/s/XXXX/exec). Setup steps are in
   // creator-site-setup/SETUP.md. Left empty, the button opens the visitor's own email app instead.
   // (A Formspree link also works here if you ever prefer that.)
-  formEndpoint: "",
+  formEndpoint: "https://script.google.com/macros/s/AKfycbysJHt7ZCG8ydIwCVF9TqH0TyQczJX1UXJLxmyG2xK49vqjjpL7CrgnyYdiYwhaZlS2/exec",
 
   socials: {
     instagram: "https://www.instagram.com/withlovemaniiiii/",
