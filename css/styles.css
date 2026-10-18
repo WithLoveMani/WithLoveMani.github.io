@@ -311,3 +311,8 @@ blockquote{font:400 clamp(1.7rem,3vw,2.5rem)/1.1 var(--serif);margin:34px 0 4px;
   .display .line>span{transform:none}
   html{scroll-behavior:auto}
 }
+
+/* ---------- iPhone/iPad: scroll inside #page (see the script in index.html) ---------- */
+html.ios,html.ios body{height:100%;overflow:hidden}
+html.ios #page{position:fixed;inset:0;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:none;scroll-behavior:smooth;scroll-padding-top:84px}
+@media(prefers-reduced-motion:reduce){html.ios #page{scroll-behavior:auto}}
