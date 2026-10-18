@@ -48,8 +48,12 @@
   var nav = $('#nav'), toggle = $('.nav-toggle'), menu = $('#menu');
   // On iPhones the page scrolls inside #page instead of the window (see index.html)
   var page = $('#page'), inner = document.documentElement.classList.contains('ios');
-  var onScroll = function () { nav.classList.toggle('scrolled', (inner ? page.scrollTop : window.scrollY) > 20); };
-  (inner ? page : window).addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var onScroll = function () {
+    var y = Math.max(window.scrollY || 0, document.documentElement.scrollTop || 0, inner ? page.scrollTop : 0);
+    nav.classList.toggle('scrolled', y > 20);
+  };
+  // capture on document so scrolling in ANY container (window or #page) is noticed
+  document.addEventListener('scroll', onScroll, { passive: true, capture: true }); onScroll();
   var lockScroll = function (on) { (inner ? page : document.body).style.overflow = on ? 'hidden' : ''; };
   toggle.addEventListener('click', function () {
     var open = menu.classList.toggle('open');
