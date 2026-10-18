@@ -46,8 +46,11 @@
 
   /* ---- nav ---- */
   var nav = $('#nav'), toggle = $('.nav-toggle'), menu = $('#menu');
-  var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 20); };
-  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  // On iPhones the page scrolls inside #page instead of the window (see index.html)
+  var page = $('#page'), inner = document.documentElement.classList.contains('ios');
+  var onScroll = function () { nav.classList.toggle('scrolled', (inner ? page.scrollTop : window.scrollY) > 20); };
+  (inner ? page : window).addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var lockScroll = function (on) { (inner ? page : document.body).style.overflow = on ? 'hidden' : ''; };
   toggle.addEventListener('click', function () {
     var open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
@@ -204,10 +207,10 @@
     mCount.textContent = w.format + (order.length > 1 && pos > -1 ? '  ·  ' + (pos + 1) + ' of ' + order.length : '');
     mPrev.hidden = mNext.hidden = order.length < 2;
     modal.hidden = false;
-    document.body.style.overflow = 'hidden';
+    lockScroll(true);
   }
   function closeModal() {
-    modal.hidden = true; frame.innerHTML = ''; document.body.style.overflow = '';
+    modal.hidden = true; frame.innerHTML = ''; lockScroll(false);
     if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
   }
   function go(dir) {
