@@ -316,3 +316,7 @@ blockquote{font:400 clamp(1.7rem,3vw,2.5rem)/1.1 var(--serif);margin:34px 0 4px;
 html.ios,html.ios body{height:100%;overflow:hidden}
 html.ios #page{position:fixed;inset:0;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:none;scroll-behavior:smooth;scroll-padding-top:84px}
 @media(prefers-reduced-motion:reduce){html.ios #page{scroll-behavior:auto}}
+
+/* iPhone/iPad: the header is always solid, so it never depends on a scroll event to hide what passes behind it */
+html.ios .nav{background:var(--cream)}
+html.ios .nav.scrolled{box-shadow:0 1px 0 var(--line)}
