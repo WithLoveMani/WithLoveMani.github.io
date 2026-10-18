@@ -9,6 +9,13 @@
 <meta property="og:description" content="Reels, real life and brand storytelling. Open to collaborations, gifting and PR.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#f3ebe0">
+<script>
+/* iPhones/iPads scroll the page inside #page so Safari 26 has nothing to draw behind the status bar.
+   Test either way on a phone: add ?scroller=1 to force it on, ?scroller=0 to force it off. */
+(function(){var q=location.search.match(/[?&]scroller=([01])/),ua=navigator.userAgent,
+ios=/iP(hone|ad|od)/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+if(q?q[1]==='1':ios)document.documentElement.classList.add('ios');})();
+</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23c43a2b'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='%23f3ebe0' font-family='Georgia' font-style='italic'>m</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +48,7 @@
   </nav>
 </header>
 
+<div id="page">
 <main id="top">
 
 <!-- ================= HERO ================= -->
@@ -216,6 +224,7 @@
   <span>© <span id="year">2026</span> Manisha · Toronto, Canada</span>
   <a href="#top">Back to top ↑</a>
 </footer>
+</div><!-- /#page -->
 
 <!-- video modal -->
 <div class="modal" id="modal" hidden>
