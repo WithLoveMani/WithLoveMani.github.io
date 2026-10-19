@@ -242,8 +242,7 @@
   var defs = [
     ['instagram', 'i-ig', 'Instagram', S.handle || ''],
     ['youtube', 'i-yt', 'YouTube', '@manishainCanada'],
-    ['tiktok', 'i-tt', 'TikTok', 'Watch on TikTok'],
-    ['linkedin', 'i-in', 'LinkedIn', 'Manisha Fulsunge']
+    ['tiktok', 'i-tt', 'TikTok', 'Watch on TikTok']
   ];
   $('#socials').innerHTML = defs.filter(function (d) { return soc[d[0]]; }).map(function (d) {
     return '<a href="' + esc(soc[d[0]]) + '" target="_blank" rel="noopener"><svg><use href="#' + d[1] + '"/></svg><div><span>' + d[2] + '</span><b>' + esc(d[3]) + '</b></div></a>';
